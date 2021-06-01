@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
+
+namespace MoviesManager.Entities
+{
+    public class Contact
+    {
+        public int Id { get; set; }
+        public int UserId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+
+
+        [ForeignKey("UserId")]
+        public User User { get; set; }
+       public List<Phone> Phones { get; set; }
+    }
+}

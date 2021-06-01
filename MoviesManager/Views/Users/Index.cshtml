@@ -1,0 +1,32 @@
+﻿@using MoviesManager.Entities;
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+   
+}
+<a href="/Users/Edit"> + New</a>
+<table style="width:100%;margin:50px;">
+    <tr style="font-weight:bold;">
+
+        <td>Username</td>
+        <td>Password</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td> ..::::..</td>
+
+    </tr>
+    @foreach (User i in (List<User>)ViewData["users"])
+    {
+    <tr>
+        <td>@i.Username</td>
+        <td>@i.Password</td>
+        <td>@i.FirstName</td>
+        <td>@i.LastName</td>
+        <td>
+            <a href="/Users/Edit/?id=@i.Id"> Edit</a> &nbsp;
+            <a href="/Users/Delete/?id=@i.Id"> Delete </a> &nbsp;
+        </td>
+
+    </tr>
+    }
+
+</table>

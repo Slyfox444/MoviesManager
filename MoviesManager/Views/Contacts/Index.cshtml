@@ -1,0 +1,36 @@
+﻿@model MoviesManager.ViewModels.Contacts.IndexVM
+@using MoviesManager.Entities;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<a href="/Users/Edit"> + New</a>
+<table style="width:100%;margin:50px;">
+    <tr style="font-weight:bold;">
+
+
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Email</td>
+        <td> ..::::..</td>
+
+    </tr>
+    @foreach (Contact i in Model.Items)
+    {
+    <tr>
+
+        <td>@i.FirstName</td>
+        <td>@i.LastName</td>
+        <td>@i.Email</td>
+        <td>
+            <a href="/Phones/Index?id=@i.Id"> Details </a> &nbsp;
+            <a href="/Contacts/Edit/?id=@i.Id"> Edit</a> &nbsp;
+            <a href="/Contacts/Delete/?id=@i.Id"> Delete </a> &nbsp;
+        </td>
+
+    </tr>
+    }
+
+</table>

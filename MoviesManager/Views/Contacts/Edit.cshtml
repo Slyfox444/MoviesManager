@@ -1,0 +1,57 @@
+﻿@model MoviesManager.ViewModels.Contacts.EditVM
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<fieldset>
+    <legend>Contacts</legend>
+
+    <form action="/Contacts/Edit" method="post">
+        @Html.HiddenFor(m => m.Id)
+        @Html.HiddenFor(m => m.UserId)
+        <table>
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.FirstName)
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.FirstName)
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.LastName)
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.LastName)
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(m => m.Email)
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Email)
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input style="float:right;" type="submit" value="Save" />
+                    <a href="/Contacts/Index">Back to list</a>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+</fieldset>

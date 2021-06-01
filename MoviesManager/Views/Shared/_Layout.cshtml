@@ -1,0 +1,72 @@
+﻿
+
+@using MoviesManager.Entities;
+<html>
+<head>
+
+</head>
+<body>
+    <table style="width:100%;">
+        <tr>
+            <td style="text-align:center;">
+                <img src="~/Images/logom.png" width="450px" height="100px" />
+            </td>
+        </tr>
+        <tr style="width:100%;">
+            <td style="background-color:darkred; padding:20px;">
+                <ul style="list-style:none;">
+                    <li style="float:left;">
+                        <a style="color:white !important;text-decoration: none;" href="/Home/Index"> Home </a>
+                    </li>
+                    <li style="float:left;margin-left:10px;">
+                        <a style="color:white !important;text-decoration: none;" href="/Users/Index"> Users </a>
+                    </li>
+                    <li style="float:left;margin-left:10px;">
+                        <a style="color:white !important;text-decoration: none;" href="/Contacts/Index"> Contacts </a>
+                    </li>
+
+
+                    @if (Session["loggedUser"] == null)
+                    {
+                        <li style="float:right;">
+                            <a style="color:white;text-decoration: none;" href="/Home/Login"> LOGIN </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li style="float:right;">
+                            <a style="color:white;text-decoration: none;" href="/Home/Logout"> LOGOUT </a>
+                        </li>
+                    }
+
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ul style="list-style:none;">
+                    <li style="float:right;">
+                        <p style="color:darkred;font-size:20px;">
+                            Hi,
+                            <span>
+                                @(Session["loggedUser"] == null ? "Anonymous" : ((User)Session["loggedUser"]).Username)
+                            </span>
+                           
+                            !
+
+                        </p>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr style="width:100%;">
+
+            <td>
+                @RenderBody()
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
+
